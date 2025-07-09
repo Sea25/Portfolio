@@ -1,0 +1,252 @@
+/* Global Styles */
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --accent: #64ffda;  /* Teal accent (elegant & modern) */
+    --text-light: #e0e0e0;
+    --text-muted: #b0b0b0;
+    --card-bg: #1e1e1e;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Navigation */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
+
+#navbar a {
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+#navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--accent);
+    transition: width 0.3s;
+}
+
+#navbar a:hover::after {
+    width: 100%;
+}
+
+/* Sections */
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--accent);
+    text-align: center;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--accent);
+    margin: 15px auto 0;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, var(--darker-bg), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hero-content h2 {
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--text-muted);
+}
+
+/* Projects Section */
+.projects {
+    background: var(--darker-bg);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+.project-card p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* Skills Section */
+.skills {
+    background: var(--dark-bg);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skills-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    background: var(--card-bg);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+}
+
+.skills-list i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--accent);
+}
+
+/* Contact Section */
+.contact {
+    background: var(--darker-bg);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--card-bg);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #navbar ul {
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.3rem;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+}
